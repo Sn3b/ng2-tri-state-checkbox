@@ -13,6 +13,6 @@ A simple checkbox with indeterminate state to be used in Angular2 projects.
 
 ```typescript
 this.myForm = new FormGroup({
-  myControl: new FormControl(null)
+  myControl: new FormControl(null) // possible values: true / false / null
 });
 ```
