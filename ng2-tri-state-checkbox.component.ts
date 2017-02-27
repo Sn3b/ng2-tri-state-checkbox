@@ -11,7 +11,6 @@ import {
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
-  moduleId: module.id,
   selector: 'ng2-tri-state-checkbox',
   template: `<input #checkbox type="checkbox" (blur)="onBlur()" (click)="setState()" />`,
   providers: [
