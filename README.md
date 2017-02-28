@@ -1,7 +1,7 @@
 # ng2-tri-state-checkbox
 A simple checkbox with indeterminate state to be used in Angular2 projects.
 
-[Demo](https://embed.plnkr.co/I7yWlac1yMgbpPjUVbBX/)
+[Demo](https://embed.plnkr.co/CjykTb/)
 
 ### Usage:
 #### Model-driven form:
