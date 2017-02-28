@@ -3,8 +3,6 @@ import {
   ElementRef,
   ViewChild,
   Input,
-  OnChanges,
-  AfterViewInit,
   forwardRef
 } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
@@ -20,7 +18,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
     }
   ]
 })
-export class Ng2TriStateCheckboxComponent implements OnChanges, AfterViewInit, ControlValueAccessor {
+export class Ng2TriStateCheckboxComponent implements ControlValueAccessor {
 
   get value() {
     return this._value;
@@ -33,14 +31,6 @@ export class Ng2TriStateCheckboxComponent implements OnChanges, AfterViewInit, C
 
   @Input() private _value: boolean = null;
   @ViewChild('checkbox') private _checkbox: ElementRef;
-
-  public ngOnChanges(): void {
-    this.render();
-  }
-
-  public ngAfterViewInit(): void {
-    this.render();
-  }
 
   public writeValue(value: any): void {
     if (value !== undefined) {
