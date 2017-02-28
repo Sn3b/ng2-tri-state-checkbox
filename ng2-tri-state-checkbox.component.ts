@@ -19,21 +19,21 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 })
 export class Ng2TriStateCheckboxComponent implements ControlValueAccessor {
 
-  get value() {
-    return this._value;
+  get checked() {
+    return this._checked;
   }
-  set value(value: boolean) {
-    this._value = value;
+  set checked(checked: boolean) {
+    this._checked = checked;
     this.render();
-    this.onChangeCallback(this._value);
+    this.onChangeCallback(this._checked);
   }
 
   @ViewChild('checkbox') private _checkbox: ElementRef;
-  private _value: boolean = null;
+  private _checked: boolean = null;
 
   public writeValue(value: any): void {
     if (value !== undefined) {
-      this.value = value;
+      this.checked = value;
     }
   }
 
@@ -51,12 +51,12 @@ export class Ng2TriStateCheckboxComponent implements ControlValueAccessor {
 
   public setState(): void {
     if (this._checkbox.nativeElement.readOnly) {
-      this._checkbox.nativeElement.checked = this._checkbox.nativeElement.readOnly = this.value = false;
+      this._checkbox.nativeElement.checked = this._checkbox.nativeElement.readOnly = this.checked = false;
     } else if (!this._checkbox.nativeElement.checked) {
       this._checkbox.nativeElement.readOnly = this._checkbox.nativeElement.indeterminate = true;
-      this.value = null;
+      this.checked = null;
     } else {
-      this.value = true;
+      this.checked = true;
     }
   }
 
@@ -64,7 +64,7 @@ export class Ng2TriStateCheckboxComponent implements ControlValueAccessor {
   private onTouchedCallback = () => { }
 
   private render(): void {
-    switch(this.value) {
+    switch(this.checked) {
       case true:
         this._checkbox.nativeElement.readOnly = this._checkbox.nativeElement.indeterminate = false;
         this._checkbox.nativeElement.checked = true;
