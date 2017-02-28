@@ -9,7 +9,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
   selector: 'ng2-tri-state-checkbox',
-  template: `<input #checkbox type="checkbox" (blur)="onBlur()" (click)="setState()" />`,
+  template: `<input #checkbox type="checkbox" (change)="onChange()" (click)="setState()" />`,
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
@@ -46,7 +46,7 @@ export class Ng2TriStateCheckboxComponent implements ControlValueAccessor {
     this.onTouchedCallback = fn;
   }
 
-  public onBlur(): void {
+  public onChange(): void {
     this.onTouchedCallback();
   }
 
