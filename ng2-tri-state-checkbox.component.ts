@@ -27,6 +27,7 @@ export class Ng2TriStateCheckboxComponent implements OnChanges, AfterViewInit, C
   }
   set value(val) {
     this._value = val;
+    this.render();
     this.onChangeCallback(this._value);
   }
 
@@ -70,8 +71,8 @@ export class Ng2TriStateCheckboxComponent implements OnChanges, AfterViewInit, C
     }
   }
 
-  private onChangeCallback = (_: any) => { };
-  private onTouchedCallback = () => { };
+  private onChangeCallback = (_: any) => { }
+  private onTouchedCallback = () => { }
 
   private render(): void {
     switch(this.value) {
@@ -80,7 +81,7 @@ export class Ng2TriStateCheckboxComponent implements OnChanges, AfterViewInit, C
         this._checkbox.nativeElement.checked = true;
         break;
       case false:
-        this._checkbox.nativeElement.checked = this._checkbox.nativeElement.readOnly = false;
+        this._checkbox.nativeElement.checked = this._checkbox.nativeElement.readOnly = this._checkbox.nativeElement.indeterminate = false;
         break;
       case null:
       case undefined:
