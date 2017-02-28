@@ -2,7 +2,6 @@ import {
   Component,
   ElementRef,
   ViewChild,
-  Input,
   forwardRef
 } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
@@ -29,8 +28,8 @@ export class Ng2TriStateCheckboxComponent implements ControlValueAccessor {
     this.onChangeCallback(this._value);
   }
 
-  @Input() private _value: boolean = null;
   @ViewChild('checkbox') private _checkbox: ElementRef;
+  private _value: boolean = null;
 
   public writeValue(value: any): void {
     if (value !== undefined) {
