@@ -23,8 +23,8 @@ export class Ng2TriStateCheckboxComponent implements ControlValueAccessor {
   get value() {
     return this._value;
   }
-  set value(val) {
-    this._value = val;
+  set value(value: boolean) {
+    this._value = value;
     this.render();
     this.onChangeCallback(this._value);
   }
